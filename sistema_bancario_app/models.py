@@ -74,4 +74,9 @@ class Historico(models.Model):
         default=0
     )
 
+    conta_realizou = models.ForeignKey(
+        'Conta',
+        on_delete=models.CASCADE
+    )
+
 

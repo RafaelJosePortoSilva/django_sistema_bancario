@@ -74,4 +74,8 @@ class Historico(models.Model):
         default=0
     )
 
+    conta_realizou = models.ManyToManyField(
+        'Conta'
+    )
+
 

@@ -59,4 +59,11 @@ class Cliente(models.Model):
     )
 
 class Historico(models.Model):
-    ...
+
+    tipo_transacao = models.CharField(
+        max_length=255,
+        choices=[
+            'deposito',
+            'saque'
+        ]
+    )

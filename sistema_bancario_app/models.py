@@ -1,8 +1,8 @@
 from django.db import models
 
+
 # Create your models here.
 class Conta(models.Model):
-
     saldo = models.DecimalField(
         max_digits=12,
         decimal_places=2,
@@ -28,8 +28,8 @@ class Conta(models.Model):
         on_delete=models.CASCADE
     )
 
-class ContaCorrente(models.Model):
 
+class ContaCorrente(models.Model):
     limite = models.DecimalField(
         max_digits=12,
         decimal_places=2,
@@ -40,8 +40,8 @@ class ContaCorrente(models.Model):
 
     )
 
-class Cliente(models.Model):
 
+class Cliente(models.Model):
     endereco = models.CharField(
         max_length=255
     )
@@ -58,12 +58,12 @@ class Cliente(models.Model):
 
     )
 
-class Historico(models.Model):
 
+class Historico(models.Model):
     tipo_transacao = models.CharField(
         max_length=255,
         choices=[
-            'deposito',
-            'saque'
+            ('d', 'deposito'),
+            ('s', 'saque')
         ]
     )

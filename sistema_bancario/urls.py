@@ -25,9 +25,9 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('conta/', include('sistema_bancario_app.urls')),
+    path('index/', include('sistema_bancario_app.urls')),
 ]
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='/conta/')),
+    path('', RedirectView.as_view(url='/index/')),
 ]

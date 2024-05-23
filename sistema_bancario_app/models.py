@@ -29,7 +29,16 @@ class Conta(models.Model):
     )
 
 class ContaCorrente(models.Model):
-    ...
+
+    limite = models.DecimalField(
+        max_digits=16,
+        decimal_places=2,
+        default=0
+    )
+
+    limite_saques = models.IntegerField(
+
+    )
 
 class Cliente(models.Model):
     ...

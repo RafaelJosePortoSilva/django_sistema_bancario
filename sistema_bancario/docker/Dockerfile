@@ -1,0 +1,7 @@
+FROM postgres:latest
+
+ENV POSTGRES_DB=db_sistema_bancario
+ENV POSTGRES_USER=sys
+ENV POSTGRES_PASSWORD=1234
+
+EXPOSE 5432

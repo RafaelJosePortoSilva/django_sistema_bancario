@@ -67,3 +67,10 @@ class Historico(models.Model):
             ('s', 'saque')
         ]
     )
+
+    valor = models.DecimalField(
+        max_digits=12,
+        decimal_places=2,
+        default=0
+    )
+

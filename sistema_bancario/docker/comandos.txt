@@ -1,0 +1,8 @@
+Subir container a partir do yml
+docker-compose up -d
+
+Parar container
+docker-compose stop nome_container
+
+Reativar container
+docker-compose up -d nome_container

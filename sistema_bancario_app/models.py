@@ -74,8 +74,9 @@ class Historico(models.Model):
         default=0
     )
 
-    cliente_realizou = models.ManyToManyField(
-        'Conta'
+    conta_realizou = models.ManyToManyField(
+        'Conta',
+        related_name='+'
     )
 
 

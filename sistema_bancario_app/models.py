@@ -1,5 +1,5 @@
 from django.db import models
-
+from cpf_field.models import CPFField
 
 # Create your models here.
 class Conta(models.Model):
@@ -46,7 +46,7 @@ class Cliente(models.Model):
         max_length=255
     )
 
-    cpf = models.IntegerField(
+    cpf = CPFField(
         unique=True
     )
 
@@ -73,4 +73,5 @@ class Historico(models.Model):
         decimal_places=2,
         default=0
     )
+
 

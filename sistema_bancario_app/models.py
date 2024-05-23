@@ -4,7 +4,7 @@ from django.db import models
 class Conta(models.Model):
 
     saldo = models.DecimalField(
-        max_digits=16,
+        max_digits=12,
         decimal_places=2,
         default=0
     )
@@ -31,7 +31,7 @@ class Conta(models.Model):
 class ContaCorrente(models.Model):
 
     limite = models.DecimalField(
-        max_digits=16,
+        max_digits=12,
         decimal_places=2,
         default=0
     )
@@ -41,10 +41,22 @@ class ContaCorrente(models.Model):
     )
 
 class Cliente(models.Model):
-    ...
 
-class PessoaFisica(models.Model):
-    ...
+    endereco = models.CharField(
+        max_length=255
+    )
+
+    cpf = models.IntegerField(
+        unique=True
+    )
+
+    nome = models.CharField(
+        max_length=255
+    )
+
+    data_nascimento = models.DateField(
+
+    )
 
 class Historico(models.Model):
     ...

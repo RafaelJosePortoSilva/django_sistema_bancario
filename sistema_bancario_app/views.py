@@ -37,7 +37,7 @@ def criar_conta(request):
             conta = conta_form.save(commit=False)
             conta.cliente = cliente
             conta.save()
-            return redirect('index')
+            return redirect('index_id',conta_id=conta.numero)
     else:
         cliente_form = ClienteForm()
         conta_form = ContaForm()
@@ -49,8 +49,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 @login_required
-def index(request):
-    conta_id = request.GET.get('conta_id')
+def index(request,conta_id=None):
     if not conta_id:
         return redirect('criar_conta')
     # Sua lógica de visualização para a página inicial (index) aqui

@@ -4,11 +4,6 @@ from .models import Conta, Historico
 from sistema_bancario_app.forms import ContaForm, ClienteForm
 
 
-def index(request, conta_id):
-    conta = get_object_or_404(Conta, numero=conta_id)
-    historico = conta.historicos.all().order_by('-data')
-    return render(request, 'index.html', {'conta': conta, 'historico': historico})
-
 @csrf_protect
 def fazer_transacao(request, conta_id):
     conta = get_object_or_404(Conta, numero=conta_id)
@@ -48,3 +43,16 @@ def criar_conta(request):
         conta_form = ContaForm()
 
     return render(request, 'criar_conta.html', {'cliente_form': cliente_form, 'conta_form': conta_form})
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def index(request):
+    conta_id = request.GET.get('conta_id')
+    if not conta_id:
+        return redirect('criar_conta')
+    # Sua lógica de visualização para a página inicial (index) aqui
+    return render(request, 'index.html')
+
